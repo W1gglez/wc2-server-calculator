@@ -13,8 +13,40 @@ let calculations = []
 // Here's a wonderful place to make some routes:
 
 // GET /calculations
-
+app.get('/calculations', (req, res) => {
+  console.log('Processing GET /calculations');
+  res.status(200).send(calculations);
+});
 // POST /calculations
+
+app.post('/calculations', (req, res) => {
+  console.log('Processing POST /calculations');
+  //grab data from request body
+  let calculation = req.body;
+  const numOne = Number(calculation.numOne);
+  const numTwo = Number(calculation.numTwo);
+  console.log(calculation);
+
+  //perform calculation and add key to store result
+  switch (calculation.operator) {
+    case '+':
+      calculation.result = numOne + numTwo;
+      break;
+    case '-':
+      calculation.result = numOne - numTwo;
+      break;
+    case '*':
+      calculation.result = numOne * numTwo;
+      break;
+    case '/':
+      calculation.result = numOne / numTwo;
+      break;
+  }
+  console.log(calculation);
+  calculations.push(calculation);
+  console.log(calculations);
+  res.status(201).send(calculations);
+});
 
 
 // PLEASE DO NOT MODIFY ANY CODE BELOW THESE BEARS:

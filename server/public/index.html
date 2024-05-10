@@ -9,22 +9,26 @@
   <body>
     <h1>Server-Side Calculator</h1>
 
-    <form data-testid="calculator">
-      <input placeholder="First Number">
-      <button>+</button>
-      <button>-</button>
-      <button>*</button>
-      <button>/</button>
-      <input placeholder="Second Number">
+    <form data-testid="calculator" id="calc-form" onsubmit="handleCalculate(event)">
+      <input type="number" placeholder="First Number" id="first-number" required>
+      <button onclick="setOperator(event)">+</button>
+      <button onclick="setOperator(event)">-</button>
+      <button onclick="setOperator(event)">*</button>
+      <button onclick="setOperator(event)">/</button>
+      <input type="number" placeholder="Second Number" id="second-number" required >
       <button>=</button>
-      <button>C</button>
+      <button onclick="clearInputs(event)">C</button>
     </form>
 
-    <section data-testid="recentResult">
+    <section data-testid="recentResult" >
       <!-- The most recent calculation result goes here. -->
+      <h2>Result: <span id="recentResult">No Recent Results</span></h2>
     </section>
 
-    <section data-testid="resultHistory">
+    <section data-testid="resultHistory" >
+      <h1>Result History</h1>
+      <div id="resultHistory"></div>
+
       <!-- The list of calculation results goes here. -->
     </section>
   </body>
