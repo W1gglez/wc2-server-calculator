@@ -40,8 +40,7 @@ function fetchCalculations() {
       const recentResult = document.getElementById('recentResult');
       resultHistory.innerHTML = '';
       if (response.data.length === 0) {
-        console.log('Checking length of response.data');
-        return;
+        recentResult.textContent = `0`;
       } else {
         recentResult.textContent = `
                 ${response.data[response.data.length - 1].result}
