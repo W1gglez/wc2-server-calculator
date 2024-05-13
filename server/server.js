@@ -25,7 +25,6 @@ app.post('/calculations', (req, res) => {
   let calculation = req.body;
   const numOne = Number(calculation.numOne);
   const numTwo = Number(calculation.numTwo);
-  console.log(calculation);
 
   //perform calculation and add key to store result
   switch (calculation.operator) {
@@ -42,11 +41,18 @@ app.post('/calculations', (req, res) => {
       calculation.result = numOne / numTwo;
       break;
   }
-  console.log(calculation);
   calculations.push(calculation);
-  console.log(calculations);
   res.status(201).send(calculations);
 });
+
+app.delete('/calculations', (req, res) => {
+  console.log('Processing DELETE /calculations');
+  calculations = [];
+
+  res.status(200).send(calculations);
+});
+
+
 
 
 // PLEASE DO NOT MODIFY ANY CODE BELOW THESE BEARS:

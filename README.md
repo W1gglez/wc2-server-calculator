@@ -1,9 +1,11 @@
-# Project Name
+# Server-side Calculator
 
-[Project Instructions](./INSTRUCTIONS.md), this line may be removed once you have updated the README.md
 
 ## Description
 
-Your project description goes here. What problem did you solve? How did you solve it?
-
-Additional README details can be found [here](https://github.com/PrimeAcademy/readme-template/blob/master/README.md).
+Creates a calculator app that demonstrates your understanding of the client/server request/response cycle. To ensure that your app is making sensible use of the request/response cycle:
+* All mathematical logic **must** be implemented on the server.
+* Calculation history data **must** be stored on the server.
+* The client-side code **must** be able to:
+  * Ask the server for its calculation history, then render it appropriately on the DOM.
+  * Obtain "new calculation" data via user input, then send it to the server.

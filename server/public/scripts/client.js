@@ -26,6 +26,9 @@ function handleCalculate(event) {
       console.log(error);
       alert('Something went wrong. Check console for more info.');
     });
+
+  document.getElementById('first-number').value = '';
+  document.getElementById('second-number').value = '';
 }
 
 function fetchCalculations() {
@@ -67,4 +70,16 @@ function clearInputs(event) {
 
   const form = document.getElementById('calc-form');
   form.reset();
+}
+
+function deleteCalcs() {
+  axios
+    .delete('/calculations')
+    .then((response) => {
+      fetchCalculations();
+    })
+    .catch((error) => {
+      console.log(error);
+      alert('Something went wrong. Check console for more info.');
+    });
 }
